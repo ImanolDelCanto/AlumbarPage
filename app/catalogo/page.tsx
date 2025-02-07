@@ -1,67 +1,34 @@
-"use client"
-
-import { ProductCard } from "@/components/product-card"
-import { useSearchParams } from "next/navigation"
+import { Suspense } from "react"
+import { CatalogContent } from "@/components/catalog-content"
 
 export default function Catalogo() {
-  const searchParams = useSearchParams()
-  const tipo = searchParams.get("tipo")
-
-  const allProducts = [
-    {
-      title: "Reja Tubo Estándar",
-      image: "/placeholder.svg",
-      characteristics: [
-        "Caño redondo de 1 pulgada",
-        "Marco perimetral con estructural 30x20",
-        "Refuerzo con planchuela de 1' x 1/8",
-      ],
-      type: "rejas",
-    },
-    {
-      title: "Reja Tubo Eco",
-      image: "/placeholder.svg",
-      characteristics: [
-        "Caño redondo horizontal de 1 pulgada",
-        "Marco lateral con planchuela de 1' y 1/4 x 3/16",
-        "Refuerzo central de planchuela 1' x 1/8",
-      ],
-      type: "rejas",
-    },
-    {
-      title: "Reja Tubo Reforzada",
-      image: "/placeholder.svg",
-      characteristics: [
-        "Caño redondo de 1 pulgada",
-        "Marco perimetral con estructural 30x20",
-        "Refuerzo con estructural 30x20",
-      ],
-      type: "rejas",
-    },
-    {
-      title: "Ventana Corrediza",
-      image: "/placeholder.svg",
-      characteristics: ["Aluminio anodizado", "Doble vidrio hermético", "Sistema de cierre de seguridad"],
-      type: "ventanas",
-    },
-    {
-      title: "Ventana Abatible",
-      image: "/placeholder.svg",
-      characteristics: ["PVC de alta resistencia", "Triple vidrio aislante", "Herrajes de acero inoxidable"],
-      type: "ventanas",
-    },
-  ]
-
-  const filteredProducts = tipo ? allProducts.filter((product) => product.type === tipo) : allProducts
-
   return (
     <div className="container mx-auto px-4 py-24">
       <h1 className="text-4xl font-bold text-center mb-12">Nuestro Catálogo</h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredProducts.map((product, index) => (
-          <ProductCard key={index} {...product} />
-        ))}
-      </div>
+      <Suspense fallback={<CatalogLoading />}>
+        <CatalogContent />
+      </Suspense>
+    </div>
+  )
+}
+
+function CatalogLoading() {
+  return (
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[...Array(6)].map((_, i) => (
+        <div key={i} className="bg-slate-800/50 rounded-lg p-6 space-y-4 animate-pulse">
+          <div className="h-8 bg-slate-700 rounded w-3/4"></div>
+          <div className="aspect-square bg-slate-700 rounded"></div>
+          <div className="space-y-2">
+            <div className="h-4 bg-slate-700 rounded w-1/2"></div>
+            <div className="space-y-1">
+              <div className="h-3 bg-slate-700 rounded w-full"></div>
+              <div className="h-3 bg-slate-700 rounded w-5/6"></div>
+              <div className="h-3 bg-slate-700 rounded w-4/6"></div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
