@@ -17,7 +17,7 @@ interface PriceItem {
 
 const PriceList = ({ prices }: { prices: PriceItem[] }) => (
   <div className="mt-4 bg-slate-700/50 rounded-lg p-4 max-h-60 overflow-y-auto">
-    <h4 className="font-semibold mb-2 text-orange-500">Precios por medida:</h4>
+    <h4 className="font-semibold mb-2 text-primary">Precios por medida:</h4>
     <ul className="space-y-1">
       {prices.map((item, index) => (
         <li key={index} className="flex justify-between text-sm">
@@ -48,7 +48,7 @@ export function ProductCard({ title, characteristics }: ProductCardProps) {
   return (
     <div className="bg-slate-800 border border-slate-700 rounded-lg overflow-hidden">
       <div className="p-6">
-        <h2 className="text-2xl text-orange-500 font-bold mb-4">{title}</h2>
+        <h2 className="text-2xl text-white font-bold mb-4">{title}</h2>
         <div className="relative aspect-square overflow-hidden rounded-lg mb-4">
           <Image src={ ""} alt={title} fill className="object-cover" />
         </div>
@@ -65,7 +65,7 @@ export function ProductCard({ title, characteristics }: ProductCardProps) {
       <div className="px-6 pb-6">
         <Button
           variant="outline"
-          className="w-full text-orange-500 border-orange-500 hover:bg-orange-500 hover:text-white"
+          className="w-full text-white border-gray-400 hover:text-primary hover:text-white"
           onClick={() => setShowPrices(!showPrices)}
         >
           {showPrices ? "OCULTAR PRECIOS" : "VER PRECIOS X MEDIDA"}

@@ -9,7 +9,7 @@ export function CatalogContent() {
 
   const allProducts = [
     {
-      title: "Reja Tubo Estándar",
+      title: "REJA TUBO ESTANDAR",
       image: "/placeholder.svg",
       characteristics: [
         "Caño redondo de 1 pulgada",
@@ -19,7 +19,7 @@ export function CatalogContent() {
       type: "rejas",
     },
     {
-      title: "Reja Tubo Eco",
+      title: "REJA TUBO ECO",
       image: "/placeholder.svg",
       characteristics: [
         "Caño redondo horizontal de 1 pulgada",
@@ -29,7 +29,7 @@ export function CatalogContent() {
       type: "rejas",
     },
     {
-      title: "Reja Tubo Reforzada",
+      title: "REJA TUBO REFORZADA",
       image: "/placeholder.svg",
       characteristics: [
         "Caño redondo de 1 pulgada",
@@ -39,13 +39,13 @@ export function CatalogContent() {
       type: "rejas",
     },
     {
-      title: "Ventana Corrediza",
+      title: "VENTANA CORREDIZA",
       image: "/placeholder.svg",
       characteristics: ["Aluminio anodizado", "Doble vidrio hermético", "Sistema de cierre de seguridad"],
       type: "ventanas",
     },
     {
-      title: "Ventana Abatible",
+      title: "VENTANA ABATIBLE",
       image: "/placeholder.svg",
       characteristics: ["PVC de alta resistencia", "Triple vidrio aislante", "Herrajes de acero inoxidable"],
       type: "ventanas",

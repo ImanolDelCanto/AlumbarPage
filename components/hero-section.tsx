@@ -2,8 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import Image from "next/image"
 import Link from "next/link"
+import Image from "next/image"
 
 export function HeroSection() {
   return (
@@ -25,12 +25,18 @@ export function HeroSection() {
               alt="Alumbar Logo"
               width={120}
               height={120}
-              className="w-auto h-24"
+              className="w-auto h-40"
             />
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-            Alumbar
-          </h1>
+          <div className="relative">
+            <h1 className="absolute inset-0 text-5xl md:text-7xl font-bold mb-6 text-white blur-[1px]">
+              ALUMBAR
+            </h1>
+            <h1 className="relative text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+              ALUMBAR
+            </h1>
+          </div>
+
           <p className="text-xl md:text-2xl mb-8 text-secondary-foreground/80">
             Donde la innovación se encuentra con la excelencia en aluminio
           </p>

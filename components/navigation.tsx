@@ -32,11 +32,11 @@ export function Navigation() {
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20Alumbar-fotor-bg-remover-20250207121747-xAUj4FOtqLOv4hiV4DKJ3Tnk2FZbVJ.png"
               alt="Alumbar Logo"
-              width={40}
-              height={40}
-              className="w-auto h-8"
+              width={48}
+              height={48}
+              className="w-auto h-10"
             />
-            <span className="text-2xl font-bold text-primary">Alumbar</span>
+            <span className="text-3xl font-bold text-primary">Alumbar</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -60,9 +60,6 @@ export function Navigation() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Link href="/contacto" className="hover:text-primary transition-colors">
-              Contacto
-            </Link>
             <Button className="bg-primary hover:bg-primary/90">Solicitar Presupuesto</Button>
           </div>
 
@@ -102,13 +99,6 @@ export function Navigation() {
                   Ver ventanas
                 </Link>
               </div>
-              <Link
-                href="/contacto"
-                className="hover:text-primary transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contacto
-              </Link>
               <Button className="bg-primary hover:bg-primary/90">Solicitar Presupuesto</Button>
             </div>
           </div>

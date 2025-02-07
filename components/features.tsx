@@ -45,7 +45,7 @@ export function Features() {
               transition={{ delay: index * 0.2 }}
               className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 hover:bg-slate-800/70 transition-colors"
             >
-              <feature.icon className="w-12 h-12 text-amber-500 mb-4" />
+              <feature.icon className="w-12 h-12 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
               <p className="text-gray-400">{feature.description}</p>
             </motion.div>

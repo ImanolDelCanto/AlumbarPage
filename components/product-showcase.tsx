@@ -3,26 +3,28 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 const products = [
   {
-    name: "Serie Elegance",
-    description: "Diseño minimalista con máxima seguridad",
-    price: "Desde $89,999",
-    image: "/placeholder.svg?height=400&width=400",
+    name: "Reja Modelo Clásico",
+    description: "Diseño tradicional con máxima seguridad",
+    image: "/placeholder.svg?height=600&width=800", // Reemplazar con imágenes reales
   },
   {
-    name: "Serie Fortress",
-    description: "Protección superior con estilo moderno",
-    price: "Desde $119,999",
-    image: "/placeholder.svg?height=400&width=400",
+    name: "Ventana Corrediza Premium",
+    description: "Elegancia y funcionalidad en aluminio",
+    image: "/placeholder.svg?height=600&width=800", // Reemplazar con imágenes reales
   },
   {
-    name: "Serie Artisan",
-    description: "Diseños personalizados de alta gama",
-    price: "Desde $149,999",
-    image: "/placeholder.svg?height=400&width=400",
+    name: "Puerta Balcón",
+    description: "Diseño moderno con cristal templado",
+    image: "/placeholder.svg?height=600&width=800", // Reemplazar con imágenes reales
+  },
+  {
+    name: "Reja de Seguridad Premium",
+    description: "Máxima protección con estilo contemporáneo",
+    image: "/placeholder.svg?height=600&width=800", // Reemplazar con imágenes reales
   },
 ]
 
@@ -42,37 +44,31 @@ export function ProductShowcase() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-            >
-              <Card className="bg-slate-800/50 backdrop-blur-sm border-0 overflow-hidden group">
-                <CardContent className="p-0">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-                    <p className="text-gray-400 mb-4">{product.description}</p>
-                    <p className="text-amber-500 font-semibold mb-4">{product.price}</p>
-                    <Button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700">
-                      Ver Detalles
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+        <div className="relative max-w-5xl mx-auto px-12">
+          <Carousel opts={{ loop: true }}>
+            <CarouselContent>
+              {products.map((product, index) => (
+                <CarouselItem key={index}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.2 }}
+                    className="relative aspect-[4/3] overflow-hidden rounded-xl"
+                  >
+                    <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6 text-white">
+                      <h3 className="text-2xl font-bold mb-2">{product.name}</h3>
+                      <p className="text-gray-200 mb-4">{product.description}</p>
+                      <Button className="w-full md:w-auto bg-primary hover:bg-primary/90">Ver Detalles</Button>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="bg-white/10 hover:bg-white/20 text-white border-none" />
+            <CarouselNext className="bg-white/10 hover:bg-white/20 text-white border-none" />
+          </Carousel>
         </div>
       </div>
     </section>
