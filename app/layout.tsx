@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Alumbar | Diseño y Seguridad en Aluminio",
   description: "Soluciones elegantes en aluminio y herrería para hogares y empresas",
   icons: {
-    icon: '/favicon.ico', // Ruta correcta
+    icon: '/favicon.ico', 
   },
 };
 
