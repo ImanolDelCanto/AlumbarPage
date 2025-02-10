@@ -16,7 +16,7 @@ export function CompanyInfoSection() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 text-gray-800">Sobre Nosotros</h2>
             <p className="text-xl text-gray-600">
-              Nosotros somos Alumbar, fabrica de Aberturas de aluminio y Rejas de Seguridad.
+              Nosotros Somos Alumbar, Fabrica de Aberturas de Aluminio y Rejas de Seguridad.
             </p>
           </div>
 
@@ -38,7 +38,7 @@ export function CompanyInfoSection() {
                 </div>
                 <div className="space-y-4 text-gray-600">
                   <p>
-                    Nuestras Ventanas y rejas se entregan listas para ser instaladas por un albañil o persona con
+                    Nuestras Ventanas y Rejas se entregan listas para ser instaladas por un albañil o persona con
                     conocimiento básico.
                   </p>
                   <p>
@@ -77,7 +77,7 @@ export function CompanyInfoSection() {
                 <h3 className="text-xl font-semibold text-gray-800">Ubicación</h3>
               </div>
               <p className="mb-6 text-gray-600">
-                Podes retirar por Nuestra Fábrica. Estamos ubicados en <b>Av. San Martin 4060 Rafael Calzada, Almirante
+                 <b>Av. San Martin 4060 entre San Luis y Santiago del Estero, Rafael Calzada, Almirante
                 Brown</b>
               </p>
               <div className="aspect-video w-full rounded-lg overflow-hidden">

@@ -11,13 +11,13 @@ export function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-gray-100">Enlaces Rápidos</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link href="/" className="hover:text-amber-500 transition-colors">
+                <Link href="/" className="hover:text-primary transition-colors">
                   Inicio
                 </Link>
               </li>
               <li>
-                <Link href="/catalogo" className="hover:text-amber-500 transition-colors">
-                Productos
+                <Link href="/catalogo" className="hover:text-primary transition-colors">
+                Catalogo
                 </Link>
               </li>
             </ul>
@@ -28,9 +28,9 @@ export function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-gray-100">Horarios</h4>
             <ul className="space-y-2 text-gray-400">
               <li>Lunes a Viernes</li>
-              <li>9:00 - 18:00</li>
+              <li>8:00 - 17:00</li>
               <li>Sábados</li>
-              <li>9:00 - 13:00</li>
+              <li>8:00 - 13:00</li>
             </ul>
           </div>
 
@@ -39,10 +39,10 @@ export function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-gray-100">Síguenos</h4>
             <div className="flex gap-4">
               <a
-                href="https://www.facebook.com/ventanasalumbar/?locale=es_LA"
+                href="https://www.facebook.com/alumbar.rejas/"
                 target="_blank"
                 aria-label="Facebook"
-                className="text-gray-400 hover:text-amber-500 transition-colors"
+                className="text-gray-400 hover:text-primary transition-colors"
               >
                 <Facebook className="w-6 h-6" />
               </a>
@@ -50,14 +50,14 @@ export function Footer() {
                 href="https://www.instagram.com/alumbar.rejas/"
                 target="_blank"
                 aria-label="Instagram"
-                className="text-gray-400 hover:text-amber-500 transition-colors"
+                className="text-gray-400 hover:text-primary transition-colors"
               >
                 <Instagram className="w-6 h-6" />
               </a>
               <a
                 href="mailto:Aberturasalumbar@hotmail.com"
                 aria-label="Instagram"
-                className="text-gray-400 hover:text-amber-500 transition-colors"
+                className="text-gray-400 hover:text-primary transition-colors"
               >
                 <Mail className="w-6 h-6" />
               </a>

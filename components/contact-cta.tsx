@@ -16,9 +16,12 @@ export function ContactCTA() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl font-bold mb-6">¿Listo para mejorar la seguridad de tu espacio?</h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Contáctanos hoy mismo y descubre cómo podemos ayudarte a proteger lo que más valoras con estilo
+          <h2 className="text-4xl font-bold mb-6">¿Listo para mejorar el diseño y la seguridad de tu espacio?</h2>
+          <p className="text-xl text-gray-300 mb-4">
+            Contáctanos hoy mismo y uno de nuestros asistentes de ventas va a brindarte el mejor asesoramiento... 
+          </p>
+          <p className="text-l text-gray-300 mb-8">
+            Presupuestos sin cargo
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">

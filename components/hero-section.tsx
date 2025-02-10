@@ -9,7 +9,7 @@ export function HeroSection() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/30 to-blue-500/30" />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
@@ -21,21 +21,19 @@ export function HeroSection() {
         >
           <div className="flex justify-center mb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20Alumbar-fotor-bg-remover-20250207121747-xAUj4FOtqLOv4hiV4DKJ3Tnk2FZbVJ.png"
+              src="/logo.png"
               alt="Alumbar Logo"
-              width={120}
-              height={120}
-              className="w-auto h-40"
+              width={2000}
+              height={2000}
+              className="w-80 h-80:"
             />
           </div>
-          <div className="relative">
-            <h1 className="absolute inset-0 text-5xl md:text-7xl font-bold mb-6 text-white blur-[1px]">
+          <h1 className="relative text-5xl md:text-7xl font-bold mb-6">
+            <span className="absolute inset-0 blur-[2px] text-white">ALUMBAR</span>
+            <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
               ALUMBAR
-            </h1>
-            <h1 className="relative text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              ALUMBAR
-            </h1>
-          </div>
+            </span>
+          </h1>
 
           <p className="text-xl md:text-2xl mb-8 text-secondary-foreground/80">
             Donde la innovación se encuentra con la excelencia en aluminio
@@ -47,7 +45,13 @@ export function HeroSection() {
               </Button>
             </Link>
             <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
+            <a
+              href="mailto:Aberturasalumbar@hotmail.com"
+              aria-label="Instagram"
+              className="text-gray-400 hover:text-primary transition-colors"
+            > 
               Solicitar Presupuesto
+            </a>  
             </Button>
           </div>
         </motion.div>

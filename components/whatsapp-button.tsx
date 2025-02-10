@@ -12,7 +12,7 @@ export function WhatsappButton() {
 
   const vendedores = [
     { id: 1, nombre: "Estela", numero: "5491130817381" },
-    { id: 2, nombre: "Aldana", numero: "5491161697249"},
+    { id: 2, nombre: "Aldana", numero: "5491161697249" },
     { id: 3, nombre: "Cristian", numero: "5491125557845" },
   ]
 
@@ -23,7 +23,7 @@ export function WhatsappButton() {
   }
 
   return (
-    <div className="fixed bottom-8 left-8 z-50">
+    <div className="fixed bottom-8 right-8 z-50">
       <Popover open={isOpen} onOpenChange={setIsOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -85,4 +85,5 @@ export function WhatsappButton() {
     </div>
   )
 }
+
 

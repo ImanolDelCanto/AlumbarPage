@@ -7,7 +7,7 @@ import { fetchProducts, type Product } from "@/lib/fetchProducts"
 
 export function CatalogContent() {
   const searchParams = useSearchParams()
-  const tipo = searchParams.get("tipo")
+  const categoria = searchParams.get("categoria")
   const [products, setProducts] = useState<Product[]>([])
 
   useEffect(() => {
@@ -25,6 +25,8 @@ export function CatalogContent() {
           title: product.Producto,
           characteristics: product.Caracteristicas.split(". "),
           prices: [],
+          imageUrls: product.ImagenURL,
+          category: product.Categoria,
         }
       }
       acc[product.Producto].prices.push({
@@ -33,11 +35,20 @@ export function CatalogContent() {
       })
       return acc
     },
-    {} as Record<string, { title: string; characteristics: string[]; prices: { size: string; price: number }[] }>,
+    {} as Record<
+      string,
+      {
+        title: string
+        characteristics: string[]
+        prices: { size: string; price: number }[]
+        imageUrls: string[]
+        category: string
+      }
+    >,
   )
 
-  const filteredProducts = tipo
-    ? Object.values(groupedProducts).filter((product) => product.title.toLowerCase().includes(tipo.toLowerCase()))
+  const filteredProducts = categoria
+    ? Object.values(groupedProducts).filter((product) => product.category.toLowerCase() === categoria.toLowerCase())
     : Object.values(groupedProducts)
 
   return (
@@ -48,5 +59,4 @@ export function CatalogContent() {
     </div>
   )
 }
-
 

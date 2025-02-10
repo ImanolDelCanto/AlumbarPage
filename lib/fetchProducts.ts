@@ -5,6 +5,22 @@ export interface Product {
   Caracteristicas: string
   Medidas: string
   Precio: number
+  ImagenURL: string[]
+  Categoria: string
+}
+
+function convertGoogleDriveUrl(url: string): string {
+  if (url.includes("uc?export=view")) {
+    return url
+  }
+
+  const fileId = url.match(/\/d\/(.+?)\/|id=(.+?)(&|$)/)?.[1] || url.match(/\/d\/(.+?)$/)?.[1]
+
+  if (!fileId) {
+    return url
+  }
+
+  return `https://drive.google.com/uc?export=view&id=${fileId}`
 }
 
 export async function fetchProducts(): Promise<Product[]> {
@@ -17,13 +33,17 @@ export async function fetchProducts(): Promise<Product[]> {
     Papa.parse(csvData, {
       header: true,
       complete: (results) => {
-        const transformedData = results.data.map((item:any) => ({
+        const transformedData = results.data.map((item: any) => ({
           ...item,
           Precio: Number.parseFloat(item.Precio) || 0,
+          ImagenURL: item.ImagenURL
+            ? item.ImagenURL.split(",").map((url: string) => convertGoogleDriveUrl(url.trim()))
+            : [],
+          Categoria: item.Categoria || "Sin categoría",
         }))
         resolve(transformedData as Product[])
       },
-      error: (error:any) => {
+      error: (error: any) => {
         reject(error)
       },
     })

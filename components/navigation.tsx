@@ -30,13 +30,13 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20Alumbar-fotor-bg-remover-20250207121747-xAUj4FOtqLOv4hiV4DKJ3Tnk2FZbVJ.png"
-              alt="Alumbar Logo"
+              src="/logo.png"
+              alt="Logo alumbar"
               width={48}
               height={48}
               className="w-auto h-10"
             />
-            <span className="text-3xl font-bold text-primary">Alumbar</span>
+            <span className="text-3xl font-bold text-primary">ALUMBAR</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -53,14 +53,21 @@ export function Navigation() {
                   <Link href="/catalogo">Ver todos</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href="/catalogo?tipo=rejas">Ver rejas</Link>
+                  <Link href="/catalogo?categoria=rejas">Ver rejas</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href="/catalogo?tipo=ventanas">Ver ventanas</Link>
+                  <Link href="/catalogo?categoria=ventanas">Ver ventanas</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button className="bg-primary hover:bg-primary/90">Solicitar Presupuesto</Button>
+            <Button className="bg-primary hover:bg-primary/90">
+            <a
+              href="mailto:Aberturasalumbar@hotmail.com"
+              aria-label="Instagram"
+            > 
+              Solicitar Presupuesto
+            </a>  
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -85,14 +92,14 @@ export function Navigation() {
                   Ver todos los productos
                 </Link>
                 <Link
-                  href="/catalogo?tipo=rejas"
+                  href="/catalogo?categoria=rejas"
                   className="hover:text-primary transition-colors py-2 pl-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Ver rejas
                 </Link>
                 <Link
-                  href="/catalogo?tipo=ventanas"
+                  href="/catalogo?categoria=ventanas"
                   className="hover:text-primary transition-colors py-2 pl-4"
                   onClick={() => setIsMenuOpen(false)}
                 >

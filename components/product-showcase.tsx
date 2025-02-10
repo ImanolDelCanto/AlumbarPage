@@ -9,22 +9,22 @@ const products = [
   {
     name: "Reja Modelo Clásico",
     description: "Diseño tradicional con máxima seguridad",
-    image: "/placeholder.svg?height=600&width=800", // Reemplazar con imágenes reales
+    image: "", // Reemplazar con imágenes reales
   },
   {
     name: "Ventana Corrediza Premium",
     description: "Elegancia y funcionalidad en aluminio",
-    image: "/placeholder.svg?height=600&width=800", // Reemplazar con imágenes reales
+    image: "", // Reemplazar con imágenes reales
   },
   {
     name: "Puerta Balcón",
     description: "Diseño moderno con cristal templado",
-    image: "/placeholder.svg?height=600&width=800", // Reemplazar con imágenes reales
+    image: "", // Reemplazar con imágenes reales
   },
   {
     name: "Reja de Seguridad Premium",
     description: "Máxima protección con estilo contemporáneo",
-    image: "/placeholder.svg?height=600&width=800", // Reemplazar con imágenes reales
+    image: "", // Reemplazar con imágenes reales
   },
 ]
 
@@ -40,7 +40,7 @@ export function ProductShowcase() {
         >
           <h2 className="text-4xl font-bold mb-4">Nuestras Colecciones</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Descubre nuestra línea de productos premium, donde cada pieza es una obra maestra de seguridad y diseño
+            Descubre nuestra línea de productos donde cada artículo es una obra maestra de diseño y seguridad.
           </p>
         </motion.div>
 
@@ -56,7 +56,7 @@ export function ProductShowcase() {
                     transition={{ delay: index * 0.2 }}
                     className="relative aspect-[4/3] overflow-hidden rounded-xl"
                   >
-                    <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
+                    <Image src={product.image || ""} alt={product.name} fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6 text-white">
                       <h3 className="text-2xl font-bold mb-2">{product.name}</h3>
                       <p className="text-gray-200 mb-4">{product.description}</p>
