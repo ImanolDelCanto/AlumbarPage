@@ -30,7 +30,7 @@ const products = [
 
 export function ProductShowcase() {
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+    <section className="py-24 bg-gradient-to-b from-blue-600 to-blue-800">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,8 +38,8 @@ export function ProductShowcase() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">Nuestras Colecciones</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-white">Nuestras Colecciones</h2>
+          <p className="text-blue-100 max-w-2xl mx-auto">
             Descubre nuestra línea de productos donde cada artículo es una obra maestra de diseño y seguridad.
           </p>
         </motion.div>
@@ -56,18 +56,20 @@ export function ProductShowcase() {
                     transition={{ delay: index * 0.2 }}
                     className="relative aspect-[4/3] overflow-hidden rounded-xl"
                   >
-                    <Image src={product.image || ""} alt={product.name} fill className="object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6 text-white">
+                    <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent flex flex-col justify-end p-6 text-white">
                       <h3 className="text-2xl font-bold mb-2">{product.name}</h3>
-                      <p className="text-gray-200 mb-4">{product.description}</p>
-                      <Button className="w-full md:w-auto bg-primary hover:bg-primary/90">Ver Detalles</Button>
+                      <p className="text-blue-100 mb-4">{product.description}</p>
+                      <Button className="w-full md:w-auto bg-blue-500 hover:bg-blue-600 text-white">
+                        Ver Detalles
+                      </Button>
                     </div>
                   </motion.div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="bg-white/10 hover:bg-white/20 text-white border-none" />
-            <CarouselNext className="bg-white/10 hover:bg-white/20 text-white border-none" />
+            <CarouselPrevious className="bg-blue-500/10 hover:bg-blue-500/20 text-white border-none" />
+            <CarouselNext className="bg-blue-500/10 hover:bg-blue-500/20 text-white border-none" />
           </Carousel>
         </div>
       </div>

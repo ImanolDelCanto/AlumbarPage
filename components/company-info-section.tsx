@@ -34,7 +34,7 @@ export function CompanyInfoSection() {
               <div className="bg-gray-50 rounded-lg p-8 shadow-sm">
                 <div className="flex items-center gap-3 mb-4">
                   <Tool className="w-6 h-6 text-blue-600" />
-                  <h3 className="text-xl font-semibold text-gray-800">Entrega</h3>
+                  <h3 className="text-xl font-semibold text-primary">ENTREGA</h3>
                 </div>
                 <div className="space-y-4 text-gray-600">
                   <p>
@@ -55,7 +55,7 @@ export function CompanyInfoSection() {
               <div className="bg-gray-50 rounded-lg p-8 shadow-sm">
                 <div className="flex items-center gap-3 mb-4">
                   <Truck className="w-6 h-6 text-blue-600" />
-                  <h3 className="text-xl font-semibold text-gray-800">Envíos</h3>
+                  <h3 className="text-xl font-semibold text-primary">ENVÍOS</h3>
                 </div>
                 <div className="space-y-4 text-gray-600">
                   <p>
@@ -74,7 +74,7 @@ export function CompanyInfoSection() {
             <div className="bg-gray-50 rounded-lg p-8 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="w-6 h-6 text-blue-600" />
-                <h3 className="text-xl font-semibold text-gray-800">Ubicación</h3>
+                <h3 className="text-xl font-semibold text-primary">UBICACIÓN</h3>
               </div>
               <p className="mb-6 text-gray-600">
                  <b>Av. San Martin 4060 entre San Luis y Santiago del Estero, Rafael Calzada, Almirante

@@ -4,33 +4,25 @@
 
 @layer base {
   :root {
-    --background: 220 70% 5%;
+    --background: 224 76% 5%;
     --foreground: 0 0% 100%;
-
-    --card: 220 70% 5%;
+    --card: 224 76% 5%;
     --card-foreground: 0 0% 100%;
-
-    --popover: 220 70% 5%;
+    --popover: 224 76% 5%;
     --popover-foreground: 0 0% 100%;
-
-    --primary: 217 91% 60%;
+    --primary: 224.3 76.3% 48%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 220 13% 50%;
     --secondary-foreground: 0 0% 100%;
-
     --muted: 220 13% 20%;
     --muted-foreground: 220 13% 70%;
-
-    --accent: 217 91% 60%;
+    --accent: 220 13% 20%;
     --accent-foreground: 0 0% 100%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-
     --border: 220 13% 20%;
     --input: 220 13% 20%;
-    --ring: 217 91% 60%;
+    --ring: 224.3 76.3% 48%;
   }
 }
 
@@ -42,4 +34,29 @@
     @apply bg-background text-foreground;
   }
 }
-
+@layer utilities {
+  .text-outline-blue {
+    color: #1e40af; /* blue-800 para el color interno */
+    text-shadow: 
+      -1px -1px 0 #c9ccd1, /* gris para el contorno */
+      1px -1px 0 #c9ccd1, 
+      -1px 1px 0 #c9ccd1, 
+      1px 1px 0 #c9ccd1,
+      -2px 0 0 #c9ccd1, 
+      2px 0 0 #c9ccd1, 
+      0 -2px 0 #c9ccd1, 
+      0 2px 0 #c9ccd1, 
+      4px 4px 6px rgba(30, 64, 175, 0.3); /* sombra azul para profundidad */
+    letter-spacing: 0.05em; /* espacio entre letras */
+  }
+}
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}

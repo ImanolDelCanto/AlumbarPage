@@ -44,7 +44,9 @@ export function ContactCTA() {
           </div>
 
           <Button size="lg" className="bg-primary hover:bg-primary/90">
-            Solicitar Presupuesto
+          <a href="mailto:Aberturasalumbar@hotmail.com" aria-label="Solicitar Presupuesto">
+              Solicitar Presupuesto
+          </a>
           </Button>
         </motion.div>
       </div>

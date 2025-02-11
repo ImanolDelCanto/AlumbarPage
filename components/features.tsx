@@ -23,7 +23,7 @@ const features = [
 
 export function Features() {
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-950">
+    <section className="py-24 bg-gradient-to-b from-blue-700 to-blue-800">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -39,11 +39,11 @@ export function Features() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 hover:bg-slate-800/70 transition-colors"
+                className="bg-blue-600/50 backdrop-blur-sm rounded-lg p-6 hover:bg-blue-600/70 transition-colors"
               >
-                <feature.icon className="w-12 h-12 text-primary mb-4 mx-auto" />
-                <h3 className="text-xl font-semibold mb-2 text-center">{feature.title}</h3>
-                <p className="text-gray-400 text-center">{feature.description}</p>
+                <feature.icon className="w-12 h-12 text-blue-100 mb-4 mx-auto" />
+                <h3 className="text-xl font-semibold mb-2 text-center text-white">{feature.title}</h3>
+                <p className="text-blue-100 text-center">{feature.description}</p>
               </motion.div>
             ))}
           </div>

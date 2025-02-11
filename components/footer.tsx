@@ -17,7 +17,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/catalogo" className="hover:text-primary transition-colors">
-                Catalogo
+                Catálogo 
                 </Link>
               </li>
             </ul>
