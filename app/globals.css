@@ -36,20 +36,23 @@
 }
 @layer utilities {
   .text-outline-blue {
-    color: #1e40af; /* blue-800 para el color interno */
+    color: #ffffff; /* Blanco para el color interno */
     text-shadow: 
-      -1px -1px 0 #c9ccd1, /* gris para el contorno */
-      1px -1px 0 #c9ccd1, 
-      -1px 1px 0 #c9ccd1, 
-      1px 1px 0 #c9ccd1,
-      -2px 0 0 #c9ccd1, 
-      2px 0 0 #c9ccd1, 
-      0 -2px 0 #c9ccd1, 
-      0 2px 0 #c9ccd1, 
-      4px 4px 6px rgba(30, 64, 175, 0.3); /* sombra azul para profundidad */
-    letter-spacing: 0.05em; /* espacio entre letras */
+      -2px -2px 0 #7f7f7f, /* Gris claro para el contorno */
+      2px -2px 0 #7f7f7f, 
+      -2px 2px 0 #7f7f7f, 
+      2px 2px 0 #7f7f7f,
+      -2px 0 0 #7f7f7f, 
+      2px 0 0 #7f7f7f, 
+      0 -2px 0 #7f7f7f, 
+      0 2px 0 #7f7f7f,
+      3px 3px 0 rgba(19, 23, 34, 0.8); /* Sombra azul más definida para profundidad */
+    font-weight: bold; /* Negrita */
+    letter-spacing: 0.08em; /* Espaciado entre letras */
   }
 }
+
+
 .embla {
   overflow: hidden;
 }

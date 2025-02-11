@@ -19,11 +19,9 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <div className="flex justify-center mb-8">
-            <Image src="/logo2.png" alt="Alumbar Logo" width={2000} height={2000} className="w-80 h-80" />
+          <div className="flex justify-center mb-4">
+            <Image src="/logo.png" alt="Alumbar Logo" width={10000} height={5000} className="w-3/5 h-3/5" />
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-outline-blue">ALUMBAR</h1>
-
           <p className="text-xl md:text-2xl mb-8 text-blue-100">
             Donde la innovación se encuentra con la excelencia en aluminio
           </p>
