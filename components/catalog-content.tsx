@@ -9,51 +9,30 @@ import { Loader2 } from "lucide-react"
 export function CatalogContent() {
   const searchParams = useSearchParams()
   const categoria = searchParams.get("categoria")
+  const linea = searchParams.get("linea")
+  const subcategoria = searchParams.get("subcategoria")
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    // Cargar los productos solo si no hay productos cargados previamente
     async function loadProducts() {
-      setLoading(true)
-      const fetchedProducts = await fetchProducts()
-      setProducts(fetchedProducts)
-      setLoading(false)
+      if (products.length === 0) {
+        setLoading(true)
+        const fetchedProducts = await fetchProducts()
+        setProducts(fetchedProducts)
+        setLoading(false)
+      }
     }
     loadProducts()
-  }, [])
+  }, [products.length]) // Solo se ejecutará si el estado de productos está vacío
 
-  const groupedProducts = products.reduce(
-    (acc, product) => {
-      if (!acc[product.Producto]) {
-        acc[product.Producto] = {
-          title: product.Producto,
-          characteristics: product.Caracteristicas.split(". "),
-          prices: [],
-          imageUrls: product.ImagenURL,
-          category: product.Categoria,
-        }
-      }
-      acc[product.Producto].prices.push({
-        size: product.Medidas,
-        price: product.Precio,
-      })
-      return acc
-    },
-    {} as Record<
-      string,
-      {
-        title: string
-        characteristics: string[]
-        prices: { size: string; price: number }[]
-        imageUrls: string[]
-        category: string
-      }
-    >,
+  const filteredProducts = products.filter(
+    (product) =>
+      (!categoria || product.Categoria.toLowerCase() === categoria.toLowerCase()) &&
+      (!linea || product.Linea.toLowerCase() === linea.toLowerCase()) &&
+      (!subcategoria || product.SubCategoria.toLowerCase() === subcategoria.toLowerCase()) // Asegúrate de agregar subcategoria aquí
   )
-
-  const filteredProducts = categoria
-    ? Object.values(groupedProducts).filter((product) => product.category.toLowerCase() === categoria.toLowerCase())
-    : Object.values(groupedProducts)
 
   if (loading) {
     return (
@@ -72,4 +51,3 @@ export function CatalogContent() {
     </div>
   )
 }
-

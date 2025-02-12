@@ -3,10 +3,12 @@ import Papa from "papaparse"
 export interface Product {
   Producto: string
   Caracteristicas: string
-  Medidas: string
-  Precio: number
-  ImagenURL: string[]
+  Medidas: string[]
+  Precios: number[]
   Categoria: string
+  SubCategoria: string
+  Linea: string
+  ImagenURL: string[]
 }
 
 function convertGoogleDriveUrl(url: string): string {
@@ -33,14 +35,29 @@ export async function fetchProducts(): Promise<Product[]> {
     Papa.parse(csvData, {
       header: true,
       complete: (results) => {
-        const transformedData = results.data.map((item: any) => ({
-          ...item,
-          Precio: Number.parseFloat(item.Precio) || 0,
-          ImagenURL: item.ImagenURL
-            ? item.ImagenURL.split(",").map((url: string) => convertGoogleDriveUrl(url.trim()))
-            : [],
-          Categoria: item.Categoria || "Sin categoría",
-        }))
+        const groupedProducts: { [key: string]: Product } = {}
+
+        results.data.forEach((item: any) => {
+          const productName = item.Producto
+          if (!groupedProducts[productName]) {
+            groupedProducts[productName] = {
+              Producto: productName,
+              Caracteristicas: item.Caracteristicas,
+              Medidas: [],
+              Precios: [],
+              Categoria: item.Categoria || "Sin categoría",
+              SubCategoria: item.SubCategoria || "Sin subcategoría",
+              Linea: item.Linea || "Sin línea",
+              ImagenURL: item.ImagenURL
+                ? item.ImagenURL.split(",").map((url: string) => convertGoogleDriveUrl(url.trim()))
+                : [],
+            }
+          }
+          groupedProducts[productName].Medidas.push(item.Medidas)
+          groupedProducts[productName].Precios.push(Number.parseFloat(item.Precio) || 0)
+        })
+
+        const transformedData = Object.values(groupedProducts)
         resolve(transformedData as Product[])
       },
       error: (error: any) => {
