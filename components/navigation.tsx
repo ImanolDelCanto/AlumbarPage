@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
 import {
   DropdownMenu,
@@ -62,7 +61,7 @@ const catalogStructure = [
         subCategories: [
           { name: "Ver todo", href: "/catalogo?categoria=aberturas aluminio&linea=linea alta prestacion" },
           {
-            name: "Línea moderna",
+            name: "Línea Modena",
             href: "/catalogo?categoria=aberturas aluminio&linea=linea alta prestacion&subcategoria=linea moderna",
           },
           {
@@ -175,23 +174,23 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-blue-800/95 backdrop-blur-sm py-4 shadow-lg">
-            <div className="container mx-auto px-4 flex flex-col gap-4">
-              <Link
-                href="/"
-                className="text-white hover:text-blue-200 transition-colors py-2 border-b border-blue-700"
-                onClick={() => setIsMenuOpen(false)}
-              >
+        <div className="lg:hidden absolute top-full left-0 w-full bg-blue-800/95 py-4 shadow-lg">
+          <div className="container mx-auto px-4">
+          <Link
+            href="/"
+            className="text-white hover:text-blue-200 transition-colors py-2"
+            onClick={() => setIsMenuOpen(false)}
+          >
                 Inicio
-              </Link>
-              <MobileNestedMenu
-                items={[{ name: "Catálogo", subCategories: catalogStructure }]}
-                level={0}
-                closeMenu={() => setIsMenuOpen(false)}
-              />
-            </div>
+          </Link>
+            <MobileNestedMenu
+              items={catalogStructure}
+              level={0}
+              closeMenu={() => setIsMenuOpen(false)}
+            />
           </div>
-        )}
+        </div>
+      )}
       </div>
     </nav>
   )
@@ -201,13 +200,13 @@ const MobileNestedMenu = ({ items, level, closeMenu }: { items: any[]; level: nu
   const [openSubMenu, setOpenSubMenu] = useState<number | null>(null)
 
   return (
-    <ul className={`space-y-2 ${level > 0 ? "ml-4 border-l border-blue-700" : ""}`}>
+    <ul className={` mt-3 space-y-2 ${level > 0 ? "ml-4 " : ""}`}>
       {items.map((item, index) => (
         <li key={index}>
           {item.subCategories && item.subCategories.length > 0 ? (
             <div>
               <button
-                className="flex items-center justify-between w-full text-white hover:text-blue-200 transition-colors py-2"
+                className="flex items-center justify-between w-full text-white hover:text-blue-200 transition-colors pl-2 py-2"
                 onClick={() => setOpenSubMenu(openSubMenu === index ? null : index)}
               >
                 {item.name}
