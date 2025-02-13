@@ -36,7 +36,7 @@ export function Footer() {
 
           {/* Redes sociales */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-gray-100">Síguenos</h4>
+            <h4 className="text-lg font-semibold mb-4 text-gray-100">Seguinos</h4>
             <div className="flex gap-4">
               <a
                 href="https://www.facebook.com/alumbar.rejas/"
