@@ -20,7 +20,7 @@ export function HeroSection() {
           className="text-center max-w-4xl mx-auto"
         >
           <div className="flex justify-center mb-4">
-            <Image src="/logo.png" alt="Alumbar Logo" width={10000} height={5000} className="w-3/5 h-3/5" />
+            <Image src="/logo.png" alt="Alumbar Logo" width={10000} height={5000} className="2xl:w-3/5 2xl:h-3/5 sm:w-4/5 md:w-4/5 lg:w-2/5" />
           </div>
           <p className="text-xl md:text-2xl mb-8 text-blue-100">
             Donde la innovación se encuentra con la excelencia en aluminio

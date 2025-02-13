@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, ChevronDown, ChevronRight } from "lucide-react"
+import { Menu, X, ChevronDown, ChevronRight, Instagram, Facebook, Phone, MapPin } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -94,12 +94,18 @@ const catalogStructure = [
         name: "Línea Residencial Pesada",
         subCategories: [
           { name: "Ver todo", href: "/catalogo?categoria=rejas seguridad&linea=linea residencial pesada" },
-          { name: "Rejas para ventanas", href: "/catalogo?categoria=rejas seguridad&linea=linea residencial pesada&subcategoria=rejas para ventanas" },
-          { name: "Puertas y portones", href: "/catalogo?categoria=rejas seguridad&linea=linea residencial pesada&subcategoria=puertas y portones" },
+          {
+            name: "Rejas para ventanas",
+            href: "/catalogo?categoria=rejas seguridad&linea=linea residencial pesada&subcategoria=rejas para ventanas",
+          },
+          {
+            name: "Puertas y portones",
+            href: "/catalogo?categoria=rejas seguridad&linea=linea residencial pesada&subcategoria=puertas y portones",
+          },
         ],
       },
     ],
-  }
+  },
 ]
 
 const NestedDropdownMenu = ({ item, closeMenu }: { item: any; closeMenu: () => void }) =>
@@ -137,18 +143,50 @@ export function Navigation() {
 
   return (
     <nav
-    className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? "bg-blue-800/95 backdrop-blur-sm py-4" : "bg-transparent py-6"
-    }`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-blue-800/95 backdrop-blur-sm py-4" : "bg-transparent py-6"
+      }`}
+    >
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo2.png" alt="Logo alumbar" width={48} height={48} className="w-auto h-10" />
-            <span className="text-3xl font-bold text-outline-blue">ALUMBAR</span>
-          </Link>
+          <div className="flex items-center gap-2 lx:ml-16">
+            <Link href="/" className="flex items-center gap-2">
+              <Image src="/logo2.png" alt="Logo alumbar" width={48} height={48} className="w-auto h-10 " />
+              <span className="text-3xl font-bold text-outline-blue">ALUMBAR</span>
+            </Link>
+            <div className="flex items-center gap-2 ml-4">
+              <Link
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-200 transition-colors"
+              >
+                <Instagram size={20} />
+              </Link>
+              <Link
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-200 transition-colors"
+              >
+                <Facebook size={20} />
+              </Link>
+              <Link href="tel:+123456789" className="text-white hover:text-blue-200 transition-colors">
+                <Phone size={20} />
+              </Link>
+              <Link
+                href="https://goo.gl/maps/yourLocation"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-200 transition-colors"
+              >
+                <MapPin size={20} />
+              </Link>
+            </div>
+          </div>
 
           {/* Desktop Menu */}
-          <div className="ml-auto hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             <Link href="/" className="text-white hover:text-blue-200 transition-colors">
               Inicio
             </Link>
@@ -174,23 +212,19 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-blue-800/95 py-4 shadow-lg">
-          <div className="container mx-auto px-4">
-          <Link
-            href="/"
-            className="text-white hover:text-blue-200 transition-colors py-2"
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <div className="lg:hidden absolute top-full left-0 w-full bg-blue-800/95 py-4 shadow-lg">
+            <div className="container mx-auto px-4">
+              <Link
+                href="/"
+                className="text-white hover:text-blue-200 transition-colors py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Inicio
-          </Link>
-            <MobileNestedMenu
-              items={catalogStructure}
-              level={0}
-              closeMenu={() => setIsMenuOpen(false)}
-            />
+              </Link>
+              <MobileNestedMenu items={catalogStructure} level={0} closeMenu={() => setIsMenuOpen(false)} />
+            </div>
           </div>
-        </div>
-      )}
+        )}
       </div>
     </nav>
   )
