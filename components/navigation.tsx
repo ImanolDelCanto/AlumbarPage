@@ -154,7 +154,7 @@ export function Navigation() {
               <Image src="/logo2.png" alt="Logo alumbar" width={48} height={48} className="w-auto h-10 " />
               <span className="sm:text-3xl text-2xl font-bold text-outline-blue">ALUMBAR</span>
             </Link>
-            <div className="flex items-center gap-2 sm:ml-4 mx-auto">
+            <div className="flex items-center gap-2 sm:ml-4 mx-auto ml-2">
               <Link
                 href="https://www.instagram.com/alumbar.rejas/"
                 target="_blank"
