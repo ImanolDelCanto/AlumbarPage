@@ -23,19 +23,6 @@ const catalogStructure = [
         name: "Ver todo",
         href: "/catalogo",
       },
-      {
-        name: "Insumos para fabricantes",
-        subCategories: [
-          {
-            name: "Accesorios de aberturas",
-            href: "/catalogo/insumos fabricantes/accesorios aberturas",
-          },
-          {
-            name: "Insumos herrería",
-            href: "/catalogo/insumos fabricantes/insumos herreria",
-          },
-        ],
-      },
     ],
   },
   {
@@ -106,6 +93,19 @@ const catalogStructure = [
       },
     ],
   },
+  {
+    name: "Insumos para fabricantes",
+    subCategories: [
+      {
+        name: "Accesorios de aberturas",
+        href: "/catalogo/insumos fabricantes/accesorios aberturas",
+      },
+      {
+        name: "Insumos herrería",
+        href: "/catalogo/insumos fabricantes/insumos herreria",
+      },
+    ],
+  }
 ]
 
 const NestedDropdownMenu = ({ item, closeMenu }: { item: any; closeMenu: () => void }) =>
@@ -152,11 +152,11 @@ export function Navigation() {
           <div className="flex items-center gap-2 lx:ml-16">
             <Link href="/" className="flex items-center gap-2">
               <Image src="/logo2.png" alt="Logo alumbar" width={48} height={48} className="w-auto h-10 " />
-              <span className="text-3xl font-bold text-outline-blue">ALUMBAR</span>
+              <span className="sm:text-3xl text-2xl font-bold text-outline-blue">ALUMBAR</span>
             </Link>
-            <div className="flex items-center gap-2 ml-4">
+            <div className="flex items-center gap-2 sm:ml-4 mx-auto">
               <Link
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/alumbar.rejas/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-200 transition-colors"
@@ -164,7 +164,7 @@ export function Navigation() {
                 <Instagram size={20} />
               </Link>
               <Link
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/alumbar.rejas/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-200 transition-colors"
@@ -175,10 +175,10 @@ export function Navigation() {
                 <Phone size={20} />
               </Link>
               <Link
-                href="https://goo.gl/maps/yourLocation"
+                href="https://maps.app.goo.gl/GsURTyXhdu9WGNYg6"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-blue-200 transition-colors"
+                className="text-white hover:text-blue-200 transition-colors "
               >
                 <MapPin size={20} />
               </Link>
