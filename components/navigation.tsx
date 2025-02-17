@@ -28,32 +28,32 @@ const catalogStructure = [
   {
     name: "Aberturas de aluminio",
     subCategories: [
-      { name: "Ver todo", href: "/catalogo?categoria=aberturas aluminio" },
+      { name: "Ver todo", href: "/catalogo?categoria=Abertura de aluminio" },
       {
         name: "Línea Herrero Estandar",
         subCategories: [
-          { name: "Ver todo", href: "/catalogo?categoria=aberturas aluminio&linea=linea herrero" },
+          { name: "Ver todo", href: "/catalogo?categoria=Abertura de aluminio&linea=Linea herrero standar" },
           {
             name: "Ventanas",
-            href: "/catalogo?categoria=aberturas aluminio&linea=linea herrero&subcategoria=ventanas",
+            href: "/catalogo?categoria=Abertura de aluminio&linea=Linea herrero standar&subcategoria=Ventana",
           },
           {
             name: "Puertas y portones",
-            href: "/catalogo?categoria=aberturas aluminio&linea=linea herrero&subcategoria=puertas y portones",
+            href: "/catalogo?categoria=Abertura de aluminio&linea=Linea herrero standar&subcategoria=Puertas y portones",
           },
         ],
       },
       {
         name: "Línea Alta Prestación",
         subCategories: [
-          { name: "Ver todo", href: "/catalogo?categoria=aberturas aluminio&linea=linea alta prestacion" },
+          { name: "Ver todo", href: "/catalogo?categoria=Abertura de aluminio&linea=Linea alta prestacion" },
           {
             name: "Línea Modena",
-            href: "/catalogo?categoria=aberturas aluminio&linea=linea alta prestacion&subcategoria=linea moderna",
+            href: "/catalogo?categoria=Abertura de aluminio&linea=Linea alta prestacion&subcategoria=Linea moderna",
           },
           {
             name: "Línea A30",
-            href: "/catalogo?categoria=aberturas aluminio&linea=linea alta prestacion&subcategoria=linea A30",
+            href: "/catalogo?categoria=Abertura de aluminio&linea=Linea alta prestacion&subcategoria=Linea A30",
           },
         ],
       },
@@ -62,32 +62,32 @@ const catalogStructure = [
   {
     name: "Rejas de seguridad",
     subCategories: [
-      { name: "Ver todo", href: "/catalogo?categoria=rejas" },
+      { name: "Ver todo", href: "/catalogo?categoria=Rejas" },
       {
         name: "Línea Económica Estándar",
         subCategories: [
-          { name: "Ver todo", href: "/catalogo?categoria=rejas&linea=linea economica estandar" },
+          { name: "Ver todo", href: "/catalogo?categoria=Rejas&linea=Linea economica estandar" },
           {
             name: "Rejas para ventanas",
-            href: "/catalogo?categoria=rejas&linea=linea economica estandar&subcategoria=rejas para ventanas",
+            href: "/catalogo?categoria=Rejas&linea=Linea economica estandar&subcategoria=Rejas para ventanas",
           },
           {
             name: "Puertas y portones",
-            href: "/catalogo?categoria=rejas&linea=linea economica estandar&subcategoria=puertas y portones",
+            href: "/catalogo?categoria=Rejas&linea=Linea economica estandar&subcategoria=Puertas y portones",
           },
         ],
       },
       {
         name: "Línea Residencial Pesada",
         subCategories: [
-          { name: "Ver todo", href: "/catalogo?categoria=rejas seguridad&linea=linea residencial pesada" },
+          { name: "Ver todo", href: "/catalogo?categoria=Rejas seguridad&linea=Linea residencial pesada" },
           {
             name: "Rejas para ventanas",
-            href: "/catalogo?categoria=rejas seguridad&linea=linea residencial pesada&subcategoria=rejas para ventanas",
+            href: "/catalogo?categoria=Rejas seguridad&linea=Linea residencial pesada&subcategoria=Rejas para ventanas",
           },
           {
             name: "Puertas y portones",
-            href: "/catalogo?categoria=rejas seguridad&linea=linea residencial pesada&subcategoria=puertas y portones",
+            href: "/catalogo?categoria=Rejas seguridad&linea=Linea residencial pesada&subcategoria=Puertas y portones",
           },
         ],
       },
