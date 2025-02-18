@@ -18,11 +18,35 @@ interface ProductCardProps {
 }
 
 const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
+  const [imageSrc, setImageSrc] = useState(src);
   const [error, setError] = useState(false);
   const [retry, setRetry] = useState(0);
 
+  useEffect(() => {
+    const convertImage = async () => {
+      try {
+        const res = await fetch("/api/convert", {
+          method: "POST",
+          body: JSON.stringify({ filePath: src }),
+          headers: { "Content-Type": "application/json" },
+        });
+
+        const data = await res.json();
+        if (data.outputPath) {
+          setImageSrc(data.outputPath);
+        }
+      } catch (err) {
+        console.error("Error en la conversión:", err);
+      }
+    };
+
+    if (src && !src.endsWith(".webp")) {
+      convertImage();
+    }
+  }, [src]);
+
   const handleError = () => {
-    if (retry < 3) { // Intenta recargar hasta 3 veces
+    if (retry < 3) {
       setRetry(retry + 1);
       setError(false);
     } else {
@@ -40,7 +64,7 @@ const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
 
   return (
     <Image 
-      src={src || "/placeholder.svg"} 
+      src={imageSrc || "/placeholder.svg"} 
       alt={alt} 
       fill 
       className="object-cover"
@@ -48,6 +72,7 @@ const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
     />
   );
 };
+
 
 
 export function ProductCard({
