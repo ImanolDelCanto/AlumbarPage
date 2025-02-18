@@ -18,20 +18,37 @@ interface ProductCardProps {
 }
 
 const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
+  const [retry, setRetry] = useState(0);
+
+  const handleError = () => {
+    if (retry < 3) { // Intenta recargar hasta 3 veces
+      setRetry(retry + 1);
+      setError(false);
+    } else {
+      setError(true);
+    }
+  };
 
   if (error) {
     return (
-      <div className="relative aspect-square bg-blue-100 flex items-center justify-center">
-        <span className="text-sm text-blue-500">Error al cargar la imagen</span>
+      <div className="relative aspect-square bg-gray-200 flex items-center justify-center">
+        <span className="text-sm text-gray-500">Error al cargar la imagen</span>
       </div>
-    )
+    );
   }
 
   return (
-    <Image src={src || "/placeholder.svg"} alt={alt} fill className="object-cover" onError={() => setError(true)} />
-  )
-}
+    <Image 
+      src={src || "/placeholder.svg"} 
+      alt={alt} 
+      fill 
+      className="object-cover"
+      onError={handleError} 
+    />
+  );
+};
+
 
 export function ProductCard({
   Producto,
