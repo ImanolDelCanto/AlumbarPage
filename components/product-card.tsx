@@ -18,62 +18,38 @@ interface ProductCardProps {
 }
 
 const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
-  const [imageSrc, setImageSrc] = useState(src);
-  const [error, setError] = useState(false);
-  const [retry, setRetry] = useState(0);
-
-  useEffect(() => {
-    const convertImage = async () => {
-      try {
-        const res = await fetch("/api/convert", {
-          method: "POST",
-          body: JSON.stringify({ filePath: src }),
-          headers: { "Content-Type": "application/json" },
-        });
-
-        const data = await res.json();
-        if (data.outputPath) {
-          setImageSrc(data.outputPath);
-        }
-      } catch (err) {
-        console.error("Error en la conversión:", err);
-      }
-    };
-
-    if (src && !src.endsWith(".webp")) {
-      convertImage();
-    }
-  }, [src]);
+  const [error, setError] = useState(false)
+  const [retry, setRetry] = useState(0)
 
   const handleError = () => {
     if (retry < 3) {
-      setRetry(retry + 1);
-      setError(false);
+      // Try reloading up to 3 times
+      setRetry(retry + 1)
+      setError(false)
     } else {
-      setError(true);
+      setError(true)
     }
-  };
+  }
+
+  useEffect(() => {
+    if (retry > 0) {
+      const timer = setTimeout(() => {
+        setError(false) // This will trigger a re-render and attempt to load the image again
+      }, 1000 * retry) // Increase delay with each retry
+      return () => clearTimeout(timer)
+    }
+  }, [retry])
 
   if (error) {
     return (
-      <div className="relative aspect-square bg-gray-200 flex items-center justify-center">
+      <div className="relative w-full h-full bg-gray-200 flex items-center justify-center">
         <span className="text-sm text-gray-500">Error al cargar la imagen</span>
       </div>
-    );
+    )
   }
 
-  return (
-    <Image 
-      src={imageSrc || "/placeholder.svg"} 
-      alt={alt} 
-      fill 
-      className="object-cover"
-      onError={handleError} 
-    />
-  );
-};
-
-
+  return <Image src={src || "/placeholder.svg"} alt={alt} fill className="object-contain" onError={handleError} />
+}
 
 export function ProductCard({
   Producto,
@@ -111,12 +87,12 @@ export function ProductCard({
     <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-blue-100 hover:shadow-xl transition-shadow duration-300">
       <div className="p-6">
         <h2 className="text-2xl text-blue-800 font-bold mb-4">{Producto}</h2>
-        <div className="relative aspect-square overflow-hidden rounded-lg mb-4">
-          <div className="embla" ref={emblaRef}>
-            <div className="embla__container">
+        <div className="relative w-full" style={{ paddingBottom: "100%" }}>
+          <div className="embla absolute inset-0" ref={emblaRef}>
+            <div className="embla__container h-full">
               {ImagenURL.map((url, index) => (
-                <div className="embla__slide" key={index}>
-                  <div className="relative aspect-square w-full">
+                <div className="embla__slide h-full" key={index}>
+                  <div className="relative w-full h-full">
                     <ProductImage src={url} alt={`${Producto} - Imagen ${index + 1}`} />
                   </div>
                 </div>
