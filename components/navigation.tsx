@@ -32,14 +32,14 @@ const catalogStructure = [
       {
         name: "Línea Herrero Estandar",
         subCategories: [
-          { name: "Ver todo", href: "/catalogo?categoria=Abertura de aluminio&linea=Linea herrero standar" },
+          { name: "Ver todo", href: "/catalogo?categoria=Abertura de aluminio&linea=Linea herrero estandar" },
           {
             name: "Ventanas",
-            href: "/catalogo?categoria=Abertura de aluminio&linea=Linea herrero standar&subcategoria=Ventana",
+            href: "/catalogo?categoria=Abertura de aluminio&linea=Linea herrero estandar&subcategoria=Ventana",
           },
           {
             name: "Puertas y portones",
-            href: "/catalogo?categoria=Abertura de aluminio&linea=Linea herrero standar&subcategoria=Puertas y portones",
+            href: "/catalogo?categoria=Abertura de aluminio&linea=Linea herrero estandar&subcategoria=Puertas y portones",
           },
         ],
       },
