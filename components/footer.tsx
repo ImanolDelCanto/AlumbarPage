@@ -28,9 +28,9 @@ export function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-gray-100">Horarios</h4>
             <ul className="space-y-2 text-gray-400">
               <li>Lunes a Viernes</li>
-              <li>8:00 - 17:00</li>
+              <li>8:00 - 18:00</li>
               <li>Sábados</li>
-              <li>8:00 - 13:00</li>
+              <li>8:00 - 14:00</li>
             </ul>
           </div>
 
