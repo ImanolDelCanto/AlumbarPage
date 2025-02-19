@@ -54,6 +54,10 @@ const catalogStructure = [
           {
             name: "Línea A30",
             href: "/catalogo?categoria=Abertura de aluminio&linea=Linea alta prestacion&subcategoria=Linea A30",
+          }, 
+          {
+            name: "Línea A40",
+            href: "/catalogo?categoria=Abertura de aluminio&linea=Linea alta prestacion&subcategoria=Linea A40",
           },
         ],
       },
@@ -80,14 +84,14 @@ const catalogStructure = [
       {
         name: "Línea Residencial Pesada",
         subCategories: [
-          { name: "Ver todo", href: "/catalogo?categoria=Rejas seguridad&linea=Linea residencial pesada" },
+          { name: "Ver todo", href: "/catalogo?categoria=Rejas&linea=Linea residencial pesada" },
           {
             name: "Rejas para ventanas",
-            href: "/catalogo?categoria=Rejas seguridad&linea=Linea residencial pesada&subcategoria=Rejas para ventanas",
+            href: "/catalogo?categoria=Rejas&linea=Linea residencial pesada&subcategoria=Rejas para ventanas",
           },
           {
             name: "Puertas y portones",
-            href: "/catalogo?categoria=Rejas seguridad&linea=Linea residencial pesada&subcategoria=Puertas y portones",
+            href: "/catalogo?categoria=Rejas&linea=Linea residencial pesada&subcategoria=Puertas y portones",
           },
         ],
       },
