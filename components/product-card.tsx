@@ -23,7 +23,6 @@ const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
 
   const handleError = () => {
     if (retry < 3) {
-      // Try reloading up to 3 times
       setRetry(retry + 1)
       setError(false)
     } else {
@@ -34,8 +33,8 @@ const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
   useEffect(() => {
     if (retry > 0) {
       const timer = setTimeout(() => {
-        setError(false) // This will trigger a re-render and attempt to load the image again
-      }, 1000 * retry) // Increase delay with each retry
+        setError(false)
+      }, 1000 * retry)
       return () => clearTimeout(timer)
     }
   }, [retry])
@@ -48,7 +47,16 @@ const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
     )
   }
 
-  return <Image src={src || "/placeholder.svg"} alt={alt} fill className="object-contain" onError={handleError} />
+  return (
+    <Image
+      src={src || "/placeholder.svg"}
+      alt={alt}
+      fill
+      className="object-contain"
+      onError={handleError}
+      loading="lazy"
+    />
+  )
 }
 
 export function ProductCard({
@@ -93,7 +101,7 @@ export function ProductCard({
               {ImagenURL.map((url, index) => (
                 <div className="embla__slide h-full" key={index}>
                   <div className="relative w-full h-full">
-                    <ProductImage src={url} alt={`${Producto} - Imagen ${index + 1}`} />
+                  <ProductImage src={getDriveDirectLink(url)} alt={`${Producto} - Imagen ${index + 1}`} />
                   </div>
                 </div>
               ))}
@@ -168,3 +176,7 @@ const PriceList = ({ medidas, precios }: { medidas: string[]; precios: number[] 
   </div>
 )
 
+const getDriveDirectLink = (url: string) => {
+  const match = url.match(/\/d\/(.*?)\//)
+  return match ? `https://drive.google.com/uc?export=view&id=${match[1]}` : url
+}
