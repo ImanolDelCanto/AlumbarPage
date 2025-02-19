@@ -36,6 +36,11 @@ export function CatalogContent() {
     setCurrentPage(1)
   }, [searchParamsString])
 
+  // Asegurar que siempre suba al principio cuando cambie de página
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }, [currentPage])
+
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const categoria = searchParams.get("categoria")
@@ -57,7 +62,6 @@ export function CatalogContent() {
 
   const changePage = (newPage: number) => {
     setCurrentPage(newPage)
-    window.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   if (loading) {
@@ -90,4 +94,3 @@ export function CatalogContent() {
     </div>
   )
 }
-
