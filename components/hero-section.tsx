@@ -15,7 +15,7 @@ export function HeroSection() {
           layout="fill"
           objectFit="cover"
           quality={80}
-          className="opacity-50"
+          className="opacity-80"
         />
       </div>
 
