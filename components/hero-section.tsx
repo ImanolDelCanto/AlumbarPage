@@ -15,12 +15,12 @@ export function HeroSection() {
           layout="fill"
           objectFit="cover"
           quality={80}
-          className="opacity-80"
+          className="opacity-100"
         />
       </div>
 
       {/* Capa de superposición para mejorar el contraste */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/70 to-blue-800/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/50 to-blue-800/50" />
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
