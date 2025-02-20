@@ -38,9 +38,9 @@ export function ProductShowcase() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 text-white">Nuestras Colecciones</h2>
+          <h2 className="text-4xl font-bold mb-4 text-white">Productos de alta demanda </h2>
           <p className="text-blue-100 max-w-2xl mx-auto">
-            Descubre nuestra línea de productos donde cada artículo es una obra maestra de diseño y seguridad.
+          Aquí encontrarás nuestros productos mas solicitados.
           </p>
         </motion.div>
 

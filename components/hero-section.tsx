@@ -8,9 +8,19 @@ import Image from "next/image"
 export function HeroSection() {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Updated Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800" />
+   <div className="absolute inset-0">
+        <Image
+          src="/banner.jpeg" 
+          alt="Fondo decorativo"
+          layout="fill"
+          objectFit="cover"
+          quality={80}
+          className="opacity-50"
+        />
+      </div>
 
+      {/* Capa de superposición para mejorar el contraste */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/70 to-blue-800/70" />
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -19,11 +29,14 @@ export function HeroSection() {
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-4 mt-4">
             <Image src="/logo.png" alt="Alumbar Logo" width={10000} height={5000} className="2xl:w-3/5 2xl:h-3/5 sm:w-4/5 md:w-4/5 lg:w-2/5" />
           </div>
+          <p className="text-xl md:text-2xls text-blue-100">
+            ¿Buscas una forma de mejorar la seguridad y el estilo de tu propiedad?
+          </p>
           <p className="text-xl md:text-2xl mb-8 text-blue-100">
-            Donde la innovación se encuentra con la excelencia en aluminio
+            En Alumbar, ofrecemos Aberturas de aluminio y Rejas de seguridad diseñadas para satisfacer tus necesidades.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/catalogo">
