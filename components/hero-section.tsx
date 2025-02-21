@@ -45,13 +45,14 @@ export function HeroSection() {
               </Button>
             </Link>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-              <a
-                href="mailto:Aberturasalumbar@hotmail.com"
+              <Link
+                href="https://wa.me/541166741449"
                 aria-label="Solicitar Presupuesto"
                 className="text-white hover:text-blue-200 transition-colors"
+                target="_blank"
               >
                 Solicitar Presupuesto
-              </a>
+              </Link>
             </Button>
           </div>
         </motion.div>

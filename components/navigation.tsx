@@ -179,7 +179,7 @@ export function Navigation() {
               >
                 <Facebook size={20} />
               </Link>
-              <Link href="tel:+123456789" className="text-white hover:text-blue-200 transition-colors">
+              <Link href="tel:+54 116674-1449" className="text-white hover:text-blue-200 transition-colors">
                 <Phone size={20} />
               </Link>
               <Link

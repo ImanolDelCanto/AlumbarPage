@@ -28,7 +28,7 @@ export function ContactCTA() {
             <div className="flex flex-col items-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-lg">
               <Phone className="w-8 h-8 text-primary mb-4" />
               <h3 className="text-lg font-semibold mb-2">Llámanos</h3>
-              <p className="text-gray-400">+54 112555-7845</p>
+              <p className="text-gray-400">+54 116674-1449</p>
             </div>
             <div className="flex flex-col items-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-lg">
               <Mail className="w-8 h-8 text-primary mb-4" />
