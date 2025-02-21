@@ -46,7 +46,7 @@ export function HeroSection() {
             </Link>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
               <Link
-                href="https://wa.me/541166741449"
+                href="https://wa.me/5491166741449"
                 aria-label="Solicitar Presupuesto"
                 className="text-white hover:text-blue-200 transition-colors"
                 target="_blank"
