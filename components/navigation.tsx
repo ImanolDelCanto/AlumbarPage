@@ -106,11 +106,11 @@ const catalogStructure = [
       },
       {
         name: "Accesorios de aberturas",
-        href: "/catalogo?categoria=Insumos para fabricantes&clinea=Accesorios aberturas",
+        href: "/catalogo?categoria=Insumos para fabricantes&linea=Accesorios aberturas",
       },
       {
         name: "Insumos de herrería",
-        href: "/catalogo?categoria=Insumos para fabricantes&clinea=Insumos herreria",
+        href: "/catalogo?categoria=Insumos para fabricantes&linea=Insumos herreria",
       },
     ],
   }
