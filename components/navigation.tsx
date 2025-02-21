@@ -102,15 +102,15 @@ const catalogStructure = [
     subCategories: [
       {
         name: "Ver todo",
-        href: "/catalogo/insumos fabricantes"
+        href: "/catalogo?categoria=Insumos para fabricantes"
       },
       {
         name: "Accesorios de aberturas",
-        href: "/catalogo/insumos fabricantes/accesorios aberturas",
+        href: "/catalogo?categoria=Insumos para fabricantes&clinea=Accesorios aberturas",
       },
       {
         name: "Insumos de herrería",
-        href: "/catalogo/insumos fabricantes/insumos herreria",
+        href: "/catalogo?categoria=Insumos para fabricantes&clinea=Insumos herreria",
       },
     ],
   }
