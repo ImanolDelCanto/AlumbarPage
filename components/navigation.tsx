@@ -49,7 +49,7 @@ const catalogStructure = [
           { name: "Ver todo", href: "/catalogo?categoria=Abertura de aluminio&linea=Linea alta prestacion" },
           {
             name: "Línea Modena",
-            href: "/catalogo?categoria=Abertura de aluminio&linea=Linea alta prestacion&subcategoria=Linea moderna",
+            href: "/catalogo?categoria=Abertura de aluminio&linea=Linea alta prestacion&subcategoria=Linea modena",
           },
           {
             name: "Línea A30",
