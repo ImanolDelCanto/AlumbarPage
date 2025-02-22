@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "tu-codigo-de-verificacion", // Reemplazar con el código real
+    google: "5UHsIsdQ9rOLq4sjgsO3pWuJtG5UwiFpvjngTM7L6qU",
   },
   alternates: {
     canonical: "https://alumbaronline.com",

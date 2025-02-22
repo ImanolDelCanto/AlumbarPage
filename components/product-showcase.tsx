@@ -32,7 +32,7 @@ const products = [
   },
   {
     name: "Mosquiteros Para ventana",
-    image: "/media/Mosquiteros Para ventana .jpg", 
+    image: "/media/Mosquiteros Para Ventana_.jpg", 
   },
   {
     name: "Porton Reja Redondo 1/2 de 2 horas de abrir",
