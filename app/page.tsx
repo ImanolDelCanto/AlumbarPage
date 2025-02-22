@@ -1,34 +1,44 @@
+import type { Metadata } from "next"
 import { HeroSection } from "@/components/hero-section"
 import { Features } from "@/components/features"
 import { ProductShowcase } from "@/components/product-showcase"
 import { CompanyInfoSection } from "@/components/company-info-section"
 import { ContactCTA } from "@/components/contact-cta"
-import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Alumbar | Fábrica de Aberturas de Aluminio y Rejas de Seguridad en Buenos Aires",
+  title: "Alumbar | Aberturas y Rejas de Seguridad - Rafael Calzada",
   description:
-    "Fabricamos aberturas de aluminio y rejas de seguridad en Rafael Calzada. Ventanas, puertas, portones y mosquiteros. Envíos a todo el país. Presupuesto sin cargo.",
+    "Alumbar - Expertos en aberturas de aluminio y rejas de seguridad desde 2008. Fabricación y venta en Rafael Calzada. Ventanas, puertas y portones. Tel: 11 6674-1449",
   keywords: [
-    "aberturas de aluminio rafael calzada",
-    "rejas de seguridad zona sur",
-    "ventanas de aluminio buenos aires",
-    "puertas de aluminio",
-    "portones de aluminio",
-    "fábrica de aberturas",
-    "herrería zona sur",
-    "mosquiteros de aluminio",
+    "alumbar",
+    "alumbar aberturas",
+    "alumbar online",
+    "alumbar rejas",
+    "alumbar rafael calzada",
+    "aberturas alumbar",
+    "rejas alumbar",
+    "ventanas alumbar",
   ],
 }
+
 export default function Home() {
   return (
-    <div className="relative">
-      <HeroSection />
-      <Features />
-      <ProductShowcase />
-      <CompanyInfoSection />
-      <ContactCTA />
-    </div>
+    <>
+      <div className="relative">
+        <HeroSection />
+        <Features />
+        <ProductShowcase />
+        <CompanyInfoSection />
+        <ContactCTA />
+      </div>
+      <div className="hidden">
+        <h1>Alumbar - Aberturas y Rejas de Seguridad</h1>
+        <p>
+          Alumbar es tu fábrica de confianza en aberturas de aluminio y rejas de seguridad en Rafael Calzada. Más de 15
+          años fabricando ventanas, puertas y portones de calidad.
+        </p>
+      </div>
+    </>
   )
 }
 

@@ -3,8 +3,11 @@ User-agent: *
 Allow: /
 Allow: /catalogo
 Allow: /catalogo?*
+
+# Bloquear rutas innecesarias
 Disallow: /api/
 Disallow: /_next/
+Disallow: /static/
 
 # Permitir indexación de recursos estáticos
 Allow: /*.jpg$
@@ -16,7 +19,12 @@ Allow: /*.svg$
 Allow: /*.css$
 Allow: /*.js$
 
-# Host
+# Configuración específica para Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Host canónico
 Host: https://alumbaronline.com
 
 # Sitemap
