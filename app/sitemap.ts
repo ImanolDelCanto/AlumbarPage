@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next"
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://alumbaronline.com"
   const lastModified = new Date()
@@ -14,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Categorías principales
   const categories = ["Abertura de aluminio", "Rejas", "Insumos para fabricantes"].map((category) => ({
-    url: `${baseUrl}/catalogo?categoria=${encodeURIComponent(category)}`,
+    url: `${baseUrl}/catalogo?categoria=${encodeURIComponent(category)}`.replace(/&/g, "&amp;"),
     lastModified,
     changeFrequency: "weekly" as const,
     priority: 0.8,
@@ -27,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { categoria: "Rejas", linea: "Linea economica estandar" },
     { categoria: "Rejas", linea: "Linea residencial pesada" },
   ].map(({ categoria, linea }) => ({
-    url: `${baseUrl}/catalogo?categoria=${encodeURIComponent(categoria)}&linea=${encodeURIComponent(linea)}`,
+    url: `${baseUrl}/catalogo?categoria=${encodeURIComponent(categoria)}&amp;linea=${encodeURIComponent(linea)}`,
     lastModified,
     changeFrequency: "weekly" as const,
     priority: 0.7,
@@ -35,4 +34,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...mainRoutes, ...categories, ...productLines]
 }
-
