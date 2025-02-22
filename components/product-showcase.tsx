@@ -32,7 +32,7 @@ const products = [
   },
   {
     name: "Mosquiteros Para ventana",
-    image: "/media/Mosquiteros Para ventana_.jpg", 
+    image: "/media/Mosquiteros Para ventana .jpg", 
   },
   {
     name: "Porton Reja Redondo 1/2 de 2 horas de abrir",
@@ -113,7 +113,7 @@ export function ProductShowcase() {
                         alt={product.name} 
                         width={500}
                         height={400}
-                        className="object-contain w-auto h-full" // h-full para ocupar todo el alto del contenedor
+                        className="object-contain w-auto h-full" 
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent flex flex-col justify-end p-6 text-white">
                         <h3 className="text-2xl font-bold mb-2">{product.name}</h3>

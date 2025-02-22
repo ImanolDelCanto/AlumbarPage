@@ -1,0 +1,24 @@
+# https://alumbaronline.com/robots.txt
+User-agent: *
+Allow: /
+Allow: /catalogo
+Allow: /catalogo?*
+Disallow: /api/
+Disallow: /_next/
+
+# Permitir indexación de recursos estáticos
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+Allow: /*.css$
+Allow: /*.js$
+
+# Host
+Host: https://alumbaronline.com
+
+# Sitemap
+Sitemap: https://alumbaronline.com/sitemap.xml
+
