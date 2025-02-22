@@ -1,6 +1,18 @@
 import { Suspense } from "react"
 import { CatalogContent } from "@/components/catalog-content"
 import { Loader2 } from "lucide-react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Catálogo de Aberturas y Rejas | Alumbar",
+  description:
+    "Explora nuestro catálogo completo de aberturas de aluminio, rejas de seguridad y más. Productos de alta calidad con envíos a todo el país.",
+  keywords: ["catálogo aberturas", "ventanas aluminio", "rejas seguridad", "puertas aluminio", "portones", "herrería"],
+  openGraph: {
+    title: "Catálogo de Aberturas y Rejas | Alumbar",
+    description: "Explora nuestro catálogo completo de aberturas de aluminio, rejas de seguridad y más.",
+  },
+}
 
 export default function Catalogo() {
   return (

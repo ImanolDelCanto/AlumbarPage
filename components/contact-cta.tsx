@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Phone, Mail, MapPin } from "lucide-react"
+import Link from "next/link"
 
 export function ContactCTA() {
   return (
@@ -44,9 +45,13 @@ export function ContactCTA() {
           </div>
 
           <Button size="lg" className="bg-primary hover:bg-primary/90">
-          <a href="mailto:Aberturasalumbar@hotmail.com" aria-label="Solicitar Presupuesto">
-              Solicitar Presupuesto
-          </a>
+          <Link
+            href="https://wa.me/5491166741449"
+            aria-label="Solicitar Presupuesto"
+            className="text-white hover:text-blue-200 transition-colors"
+            target="_blank">
+           Solicitar Presupuesto
+          </Link>
           </Button>
         </motion.div>
       </div>
