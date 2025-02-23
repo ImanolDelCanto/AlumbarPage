@@ -6,12 +6,12 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const products = [
   {
-    name: "Ventanan 150x110 Vidrio Entero + Reja Tubular Inter",
+    name: "Ventana 150x110 Vidrio Entero + Reja Tubular Inter",
     image: "/media/Ventana 150x110 Vidrio Entero + Reja Tubular Inter.jpg", 
   },
 
   {
-    name: "Ventana 150x110 Americana + Reja redondo 10",
+    name: "Ventana 150x40 Americana + Reja redondo 10mm",
     image: "/media/Ventana 150x110 Americana + Reja redondo 10_.jpg", 
   },
   {
@@ -35,7 +35,7 @@ const products = [
     image: "/media/Mosquiteros Para Ventana_.jpg", 
   },
   {
-    name: "Porton Reja Redondo 1/2 de 2 horas de abrir",
+    name: "Porton Reja Redondo 1/2 de 2 hojas de abrir",
     image: "/media/Porton Reja Redondo 1_2 de 2 hojas de abrir.jpg", 
   },
   {
