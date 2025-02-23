@@ -11,7 +11,7 @@ const products = [
   },
 
   {
-    name: "Ventana 150x40 Americana + Reja redondo 10mm",
+    name: "Ventana 150x110 Americana + Reja redondo 10mm",
     image: "/media/Ventana 150x110 Americana + Reja redondo 10_.jpg", 
   },
   {
@@ -19,7 +19,7 @@ const products = [
     image: "/media/Ventana 120x110 Vidrio entero.jpg", 
   },
   {
-    name: "Ventana 150x110 Vidrio Entero + Reja Tubular Inter",
+    name: "Ventana 150x40 Vidrio Entero + Reja Tubular Inter",
     image: "/media/Ventana 150x110 Vidrio Entero + Reja Tubular Inter_.jpg", 
   },
   {
