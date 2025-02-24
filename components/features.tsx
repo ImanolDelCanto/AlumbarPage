@@ -7,7 +7,7 @@ const features = [
   {
     icon: Shield,
     title: "Máxima Seguridad",
-    description: "Seguridad y confianza, en cada commpra",
+    description: "Seguridad y confianza, en cada compra",
   },
   {
     icon: Tool,

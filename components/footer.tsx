@@ -47,7 +47,7 @@ export function Footer() {
                 <Facebook className="w-6 h-6" />
               </a>
               <a
-                href="https://www.instagram.com/alumbar.rejas/"
+                href="https://www.instagram.com/aberturas.alumbar/"
                 target="_blank"
                 aria-label="Instagram"
                 className="text-gray-400 hover:text-primary transition-colors"

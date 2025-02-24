@@ -164,7 +164,7 @@ export function Navigation() {
             </Link>
             <div className="flex items-center gap-2 sm:ml-4 mx-auto ml-2">
               <Link
-                href="https://www.instagram.com/alumbar.rejas/"
+                href="https://www.instagram.com/aberturas.alumbar/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-200 transition-colors"
