@@ -2,7 +2,9 @@
 User-agent: *
 Allow: /
 Allow: /catalogo
-Allow: /catalogo?*
+Allow: /catalogo?
+Allow: /favicon.ico
+
 
 # Bloquear rutas innecesarias
 Disallow: /api/
