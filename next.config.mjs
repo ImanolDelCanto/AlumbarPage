@@ -7,7 +7,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'drive.google.com',
-        pathname: '/**',
+        pathname: '**',
       },
     ],
     disableStaticImages: true, // Desactiva restricciones para imágenes remotas

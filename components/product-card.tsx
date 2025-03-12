@@ -52,6 +52,7 @@ const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
       src={src || "/placeholder.svg"}
       alt={alt}
       fill
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       className="object-contain"
       onError={handleError}
       loading="lazy"
