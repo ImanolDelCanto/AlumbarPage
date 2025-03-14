@@ -14,49 +14,50 @@ interface ProductCardProps {
   Categoria: string
   SubCategoria: string
   Linea: string
-  ImagenURL: string[]
+  ImagenURL: string[] // Ahora son rutas locales
 }
 
 const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
   const [error, setError] = useState(false)
-  const [retry, setRetry] = useState(0)
+  const [loaded, setLoaded] = useState(false)
 
   const handleError = () => {
-    if (retry < 3) {
-      setRetry(retry + 1)
-      setError(false)
-    } else {
-      setError(true)
-    }
+    console.error(`Error cargando imagen: ${src}`)
+    setError(true)
   }
 
-  useEffect(() => {
-    if (retry > 0) {
-      const timer = setTimeout(() => {
-        setError(false)
-      }, 1000 * retry)
-      return () => clearTimeout(timer)
-    }
-  }, [retry])
+  const handleLoad = () => {
+    console.log(`Imagen cargada correctamente: ${src}`)
+    setLoaded(true)
+  }
 
   if (error) {
     return (
       <div className="relative w-full h-full bg-gray-200 flex items-center justify-center">
-        <span className="text-sm text-gray-500">Error al cargar la imagen</span>
+        <span className="text-sm text-gray-500">Error al cargar la imagen: {src}</span>
       </div>
     )
   }
 
   return (
-    <Image
-      src={src || "/placeholder.svg"}
-      alt={alt}
-      fill
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      className="object-contain"
-      onError={handleError}
-      loading="lazy"
-    />
+    <>
+      {!loaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+          <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      <Image
+        src={src || "/placeholder.svg"}
+        alt={alt}
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-contain"
+        onError={handleError}
+        onLoad={handleLoad}
+        loading="eager"
+        priority={true}
+      />
+    </>
   )
 }
 
@@ -72,6 +73,12 @@ export function ProductCard({
 }: ProductCardProps) {
   const [showPrices, setShowPrices] = useState(false)
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+
+  // Depuración de las URLs de imágenes
+  useEffect(() => {
+    console.log(`Producto: ${Producto}`)
+    console.log("URLs de imágenes:", ImagenURL)
+  }, [Producto, ImagenURL])
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
@@ -99,16 +106,24 @@ export function ProductCard({
         <div className="relative w-full" style={{ paddingBottom: "100%" }}>
           <div className="embla absolute inset-0" ref={emblaRef}>
             <div className="embla__container h-full">
-              {ImagenURL.map((url, index) => (
-                <div className="embla__slide h-full" key={index}>
+              {ImagenURL && ImagenURL.length > 0 ? (
+                ImagenURL.map((imagePath, index) => (
+                  <div className="embla__slide h-full" key={index}>
+                    <div className="relative w-full h-full">
+                      <ProductImage src={imagePath} alt={`${Producto} - Imagen ${index + 1}`} />
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="embla__slide h-full">
                   <div className="relative w-full h-full">
-                  <ProductImage src={getDriveDirectLink(url)} alt={`${Producto} - Imagen ${index + 1}`} />
+                    <ProductImage src="/placeholder.svg" alt={`${Producto} - Sin imagen`} />
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </div>
-          {ImagenURL.length > 1 && (
+          {ImagenURL && ImagenURL.length > 1 && (
             <>
               <Button
                 variant="ghost"
@@ -177,7 +192,3 @@ const PriceList = ({ medidas, precios }: { medidas: string[]; precios: number[] 
   </div>
 )
 
-const getDriveDirectLink = (url: string) => {
-  const match = url.match(/\/d\/(.*?)\//)
-  return match ? `https://drive.google.com/uc?export=view&id=${match[1]}` : url
-}

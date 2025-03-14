@@ -10,7 +10,6 @@ const nextConfig = {
         pathname: '**',
       },
     ],
-    disableStaticImages: true, // Desactiva restricciones para imágenes remotas
   },
 };
 
