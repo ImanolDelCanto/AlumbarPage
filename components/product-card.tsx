@@ -21,20 +21,25 @@ const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
   const [error, setError] = useState(false)
   const [loaded, setLoaded] = useState(false)
 
+  // Verificar si es una URL de Google Drive y reemplazarla con una imagen local
+  const isGoogleDriveUrl = src.includes("drive.google.com") || src.includes("googleusercontent.com")
+
+  // Si es una URL de Google Drive, usar una imagen de placeholder
+  const imageSrc = isGoogleDriveUrl ? "/placeholder.svg" : src
+
   const handleError = () => {
     console.error(`Error cargando imagen: ${src}`)
     setError(true)
   }
 
   const handleLoad = () => {
-    console.log(`Imagen cargada correctamente: ${src}`)
     setLoaded(true)
   }
 
   if (error) {
     return (
       <div className="relative w-full h-full bg-gray-200 flex items-center justify-center">
-        <span className="text-sm text-gray-500">Error al cargar la imagen: {src}</span>
+        <span className="text-sm text-gray-500">Error al cargar la imagen</span>
       </div>
     )
   }
@@ -47,7 +52,7 @@ const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
         </div>
       )}
       <Image
-        src={src || "/placeholder.svg"}
+        src={imageSrc || "/placeholder.svg"}
         alt={alt}
         fill
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -73,12 +78,6 @@ export function ProductCard({
 }: ProductCardProps) {
   const [showPrices, setShowPrices] = useState(false)
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
-
-  // Depuración de las URLs de imágenes
-  useEffect(() => {
-    console.log(`Producto: ${Producto}`)
-    console.log("URLs de imágenes:", ImagenURL)
-  }, [Producto, ImagenURL])
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()

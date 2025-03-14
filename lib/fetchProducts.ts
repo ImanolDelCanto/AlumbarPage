@@ -1,4 +1,5 @@
 import Papa from "papaparse"
+import imageMapping from "@/public/image-mapping.json"
 
 export interface Product {
   Producto: string
@@ -8,21 +9,29 @@ export interface Product {
   Categoria: string
   SubCategoria: string
   Linea: string
-  ImagenURL: string[]
+  ImagenURL: string[] // Ahora contendrá rutas locales
 }
 
-function convertGoogleDriveUrl(url: string): string {
-  if (url.includes("uc?export=view")) {
-    return url
+// Función para obtener imágenes locales para un producto
+export function getLocalImages(productName: string): string[] {
+  // Usar el mapeo de imágenes o devolver un array vacío
+  return (imageMapping as Record<string, string[]>)[productName] || ["/placeholder.svg"]
+}
+
+// Función para convertir URLs de Google Drive a rutas locales
+function convertToLocalImages(productName: string, googleDriveUrls: string[]): string[] {
+  // Primero intentamos obtener imágenes locales del mapeo
+  const localImages = getLocalImages(productName)
+
+  // Si encontramos imágenes locales, las usamos
+  if (localImages.length > 0 && localImages[0] !== "/placeholder.svg") {
+    console.log(`Usando imágenes locales para: ${productName}`)
+    return localImages
   }
 
-  const fileId = url.match(/\/d\/(.+?)\/|id=(.+?)(&|$)/)?.[1] || url.match(/\/d\/(.+?)$/)?.[1]
-
-  if (!fileId) {
-    return url
-  }
-
-  return `https://drive.google.com/uc?export=view&id=${fileId}`
+  // Si no hay imágenes locales, usamos placeholder
+  console.warn(`No se encontraron imágenes locales para: ${productName}`)
+  return ["/placeholder.svg"]
 }
 
 export async function fetchProducts(): Promise<Product[]> {
@@ -39,7 +48,15 @@ export async function fetchProducts(): Promise<Product[]> {
 
         results.data.forEach((item: any) => {
           const productName = item.Producto
+          if (!productName) return
+
           if (!groupedProducts[productName]) {
+            // Extraer URLs de Google Drive (si existen)
+            const googleDriveUrls = item.ImagenURL ? item.ImagenURL.split(",").map((url: string) => url.trim()) : []
+
+            // Convertir a imágenes locales usando el mapeo
+            const localImages = convertToLocalImages(productName, googleDriveUrls)
+
             groupedProducts[productName] = {
               Producto: productName,
               Caracteristicas: item.Caracteristicas,
@@ -48,9 +65,7 @@ export async function fetchProducts(): Promise<Product[]> {
               Categoria: item.Categoria || "Sin categoría",
               SubCategoria: item.SubCategoria || "Sin subcategoría",
               Linea: item.Linea || "Sin línea",
-              ImagenURL: item.ImagenURL
-                ? item.ImagenURL.split(",").map((url: string) => convertGoogleDriveUrl(url.trim()))
-                : [],
+              ImagenURL: localImages,
             }
           }
           groupedProducts[productName].Medidas.push(item.Medidas)
