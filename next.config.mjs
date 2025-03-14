@@ -2,6 +2,7 @@
 
 const nextConfig = {
   images: {
+    unoptimized: true,
     domains: ['hebbkx1anhila5yf.public.blob.vercel-storage.com'],
     remotePatterns: [
       {
@@ -11,6 +12,7 @@ const nextConfig = {
       },
     ],
   },
+output: "standalone",
 };
 
 export default nextConfig;
