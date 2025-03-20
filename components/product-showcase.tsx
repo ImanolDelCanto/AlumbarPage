@@ -5,6 +5,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
+// Versión simplificada de los productos con nombres de archivo sin espacios ni caracteres especiales
 const products = [
   {
     name: "Ventana 150x110 Vidrio Entero + Reja Tubular Inter",
@@ -127,17 +128,19 @@ const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
           <div className="w-8 h-8 border-4 border-blue-300 border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
-      <Image
-        src={src || "/placeholder.svg"}
-        alt={alt}
-        width={500}
-        height={400}
-        className="object-contain w-auto h-full"
-        onError={handleError}
-        onLoad={handleLoad}
-        priority={true}
-        unoptimized={true} // Usar imágenes sin optimizar para evitar problemas
-      />
+      <div className="relative w-full h-full">
+        <Image
+          src={src || "/placeholder.svg"}
+          alt={alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 500px"
+          className="object-contain"
+          onError={handleError}
+          onLoad={handleLoad}
+          priority={true}
+          unoptimized={true} // Usar imágenes sin optimizar para evitar problemas
+        />
+      </div>
     </>
   )
 }
@@ -166,12 +169,12 @@ export function ProductShowcase() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="relative w-auto mx-auto"
+                    className="relative w-full mx-auto"
                   >
-                    <div className="relative h-[400px] flex justify-center">
+                    <div className="relative h-[400px]">
                       {" "}
                       {/* Altura fija de 400px */}
-                      <ProductImage src={product.image || "/placeholder.svg"} alt={product.name} />
+                      <ProductImage src={product.image} alt={product.name} />
                       <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent flex flex-col justify-end p-6 text-white">
                         <h3 className="text-2xl font-bold mb-2">{product.name}</h3>
                       </div>
