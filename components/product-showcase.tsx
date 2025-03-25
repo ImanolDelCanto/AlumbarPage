@@ -9,11 +9,11 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 const products = [
   {
     name: "Ventana 150x110 Vidrio Entero + Reja Tubular Inter",
-    image: "/media/Ventana 150x110 Vidrio Entero + Reja Tubular Inter.jpg",
+    image: "/media/Ventana 150x110 Vidrio Entero Reja Tubular Inter.jpg",
   },
   {
     name: "Ventana 150x110 Americana + Reja redondo 10mm",
-    image: "/media/Ventana 150x110 Americana + Reja redondo 10_.jpg",
+    image: "/media/Ventana 150x110 Americana Reja redondo 10_.jpg",
   },
   {
     name: "Ventana 120x110 Vidrio entero",
@@ -21,11 +21,11 @@ const products = [
   },
   {
     name: "Ventana 150x40 Vidrio Entero + Reja Tubular Inter",
-    image: "/media/Ventana 150x110 Vidrio Entero + Reja Tubular Inter_.jpg",
+    image: "/media/Ventana 150x110 Vidrio Entero Reja Tubular Inter_.jpg",
   },
   {
     name: "Ventana 100x100 Vidrio Entero + Reja Tubular Eco",
-    image: "/media/Ventana 100x100 Vidrio Entero + Reja Tubular Eco.jpg",
+    image: "/media/Ventana 100x100 Vidrio Entero Reja Tubular Eco.jpg",
   },
   {
     name: "Aireador 40x26",
@@ -69,15 +69,15 @@ const products = [
   },
   {
     name: "Ventana 60x40 Vidrio Entero + Reja Tubular Inter",
-    image: "/media/Ventana 60x40 Vidrio Entero+ Reja Tubular Inter_.jpg",
+    image: "/media/Ventana 60x40 Vidrio Entero Reja Tubular Inter_.jpg",
   },
   {
     name: "Ventana 100x40 + Reja Redondo 10mm",
-    image: "/media/Ventana 100x40 + Reja Redondo 10mm.jpg",
+    image: "/media/Ventana 100x40 Reja Redondo 10mm.jpg",
   },
   {
     name: "Ventana 100x100 Americana + Reja Redondo 10mm",
-    image: "/media/Ventana 100x100 Americana+ Reja Redondo 10mm.jpg",
+    image: "/media/Ventana 100x100 Americana Reja Redondo 10mm.jpg",
   },
 ]
 
