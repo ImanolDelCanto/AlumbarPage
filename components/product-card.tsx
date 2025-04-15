@@ -14,17 +14,15 @@ interface ProductCardProps {
   Categoria: string
   SubCategoria: string
   Linea: string
-  ImagenURL: string[] // Ahora son rutas locales
+  ImagenURL: string[] 
 }
 
 const ProductImage = ({ src, alt }: { src: string; alt: string }) => {
   const [error, setError] = useState(false)
   const [loaded, setLoaded] = useState(false)
 
-  // Verificar si es una URL de Google Drive y reemplazarla con una imagen local
   const isGoogleDriveUrl = src.includes("drive.google.com") || src.includes("googleusercontent.com")
 
-  // Si es una URL de Google Drive, usar una imagen de placeholder
   const imageSrc = isGoogleDriveUrl ? "/placeholder.svg" : src
 
   const handleError = () => {

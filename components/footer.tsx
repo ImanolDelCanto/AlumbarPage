@@ -68,7 +68,7 @@ export function Footer() {
         {/* Derechos reservados */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
           <p>© {new Date().getFullYear()} Alumbar. Todos los derechos reservados.</p>
-          <p className="text-xs">Desarrollado por GretSoft</p>
+          <p className="text-xs">Desarrollado por <Link target="_blank" href="https://www.gretsoft.com.ar/">GretSoft</Link></p>
         </div>
       </div>
     </footer>

@@ -1,20 +1,18 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { MapPin, Truck, PenToolIcon as Tool } from "lucide-react"
+import { lazy, Suspense } from "react"
+
+// Lazy load the map component
+const MapComponent = lazy(() => import("./map-component"))
 
 export function CompanyInfoSection() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
-        >
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-gray-800">Sobre Nosotros</h2>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-6 text-gray-800">Sobre Nosotros</h2>
             <p className="text-xl text-gray-600">
               Nosotros Somos Alumbar, Fabrica de Aberturas de Aluminio y Rejas de Seguridad.
             </p>
@@ -71,25 +69,24 @@ export function CompanyInfoSection() {
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-8 shadow-sm">
+            <div className="bg-gray-50 rounded-lg p-8 shadow-sm h-[500px] ">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="w-6 h-6 text-blue-600" />
                 <h3 className="text-xl font-semibold text-primary">UBICACIÓN</h3>
               </div>
               <p className="mb-6 text-gray-600">
-                 <b>Av. San Martin 4060 entre San Luis y Santiago del Estero, Rafael Calzada, Almirante
-                Brown</b>
+                <b>Av. San Martin 4060 entre San Luis y Santiago del Estero, Rafael Calzada, Almirante Brown</b>
               </p>
               <div className="aspect-video w-full rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3276.745825787107!2d-58.348450899999996!3d-34.7871735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a32c95539b0437%3A0xdc3b85a0b0ba3aa2!2sAv.%20San%20Mart%C3%ADn%204060%2C%20B1847EZL%20Rafael%20Calzada%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1738957004094!5m2!1ses-419!2sar"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                <Suspense
+                  fallback={
+                    <div className="w-full h-full bg-gray-200 flex items-center justify-center min-h-[300px]">
+                      <div className="animate-pulse text-gray-500">Cargando mapa...</div>
+                    </div>
+                  }
+                >
+                  <MapComponent />
+                </Suspense>
               </div>
             </div>
 
@@ -100,9 +97,8 @@ export function CompanyInfoSection() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
 }
-
