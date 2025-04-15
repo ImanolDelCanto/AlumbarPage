@@ -1,14 +1,36 @@
 "use client"
 
 import { MapPin, Truck, PenToolIcon as Tool } from "lucide-react"
-import { lazy, Suspense } from "react"
+import { lazy, Suspense, useRef, useEffect, useState } from "react"
 
 // Lazy load the map component
-const MapComponent = lazy(() => import("./map-component"))
+const MapComponent = lazy(() => import("@/components/map-component"))
 
 export function CompanyInfoSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [isMapVisible, setIsMapVisible] = useState(false)
+
+  // Optimización: Cargar el mapa solo cuando la sección sea visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsMapVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1, rootMargin: "200px 0px" },
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="py-16 bg-white">
+    <section ref={sectionRef} className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -69,7 +91,7 @@ export function CompanyInfoSection() {
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-8 shadow-sm h-[500px] ">
+            <div className="bg-gray-50 rounded-lg p-8 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="w-6 h-6 text-blue-600" />
                 <h3 className="text-xl font-semibold text-primary">UBICACIÓN</h3>
@@ -85,7 +107,7 @@ export function CompanyInfoSection() {
                     </div>
                   }
                 >
-                  <MapComponent />
+                  {isMapVisible && <MapComponent />}
                 </Suspense>
               </div>
             </div>

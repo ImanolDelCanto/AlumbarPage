@@ -2,10 +2,10 @@
 
 import { useEffect, useState, useCallback, useMemo } from "react"
 import { useSearchParams } from "next/navigation"
-import { ProductCard } from "@/components/product-card"
 import { fetchProducts, type Product } from "@/lib/fetchProducts"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
+import { ProductCard } from "./product-card"
 
 const PRODUCTS_PER_PAGE = 9
 
@@ -20,6 +20,13 @@ export function CatalogContent() {
   useEffect(() => {
     setIsClient(true)
   }, [])
+
+  // Optimización: Memorizar los parámetros de búsqueda para evitar re-renders innecesarios
+  const searchParamsString = useMemo(() => {
+    if (!isClient) return ""
+    const params = new URLSearchParams(searchParams)
+    return params.toString()
+  }, [searchParams, isClient])
 
   const loadProducts = useCallback(async () => {
     try {
@@ -39,8 +46,9 @@ export function CatalogContent() {
 
   useEffect(() => {
     setCurrentPage(1)
-  }, [searchParams])
+  }, [searchParamsString])
 
+  // Optimización: Filtrar productos solo cuando sea necesario
   const filteredProducts = useMemo(() => {
     if (!isClient) return []
 

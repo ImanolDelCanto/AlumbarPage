@@ -159,7 +159,7 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 lx:ml-16">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo2.png" alt="Logo alumbar" width={48} height={48} className="w-auto h-10 " />
+              <Image src="/logo2.webp" alt="Logo alumbar" width={48} height={48} className="w-auto h-10 " />
               <span className="sm:text-3xl text-2xl font-bold text-outline-blue">ALUMBAR</span>
             </Link>
             <div className="flex items-center gap-2 sm:ml-4 mx-auto ml-2">
